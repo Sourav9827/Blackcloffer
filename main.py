@@ -33,7 +33,7 @@ for index, row in df.iterrows():
         file_path = os.path.join(directory, f'{url_id}.txt')
         # Save the article text in a text file with URL_ID as the file name
         with open(file_path, 'w', encoding='utf-8') as file:
-            file.write(title.get_text() + '\n\n' + text)
+            file.write(title.get_text() + ' ' + text)
             
         print(f'Article extracted from {url} and saved as {url_id}.txt')
     else:
@@ -71,7 +71,7 @@ for index, row in unscrapped_url.iterrows():
         file_path = os.path.join(directory, f'{url_id}.txt')
         # Save the article text in a text file with URL_ID as the file name
         with open(file_path, 'w', encoding='utf-8') as file:
-            file.write(title.get_text() + '\n\n' + text)
+            file.write(title.get_text() + ' ' + text)
             
         print(f'Article extracted from {url} and saved as {url_id}.txt')
     else:
@@ -86,5 +86,8 @@ print(unscrapped_url2)
 for index, row in unscrapped_url2.iterrows():
     url = row['URL']
     url_id = row['URL_ID']
+    file_path = os.path.join(directory, f'{url_id}.txt')
     with open(file_path, 'w', encoding='utf-8') as file:
             file.write("Page not found | Blackcoffer Insights")
+
+print("done")
